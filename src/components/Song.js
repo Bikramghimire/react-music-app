@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Song() {
+function Song({ initial }) {
   return (
     <div className="song-container">
-      <h1>Picture</h1>
-      <h1>Song name</h1>
-      <h1>Artist</h1>
+      <img src={initial.album.cover_medium} alt="" />
+      <h1>{initial.title}</h1>
+      <h1>{initial.artist.name}</h1>
     </div>
   );
 }
