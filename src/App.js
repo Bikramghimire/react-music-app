@@ -3,6 +3,7 @@ import Player from "./components/Player";
 import Song from "./components/Song";
 import "./styles/app.scss";
 import axios from "axios";
+import Library from "./components/Library";
 const options = {
   method: "GET",
   url: "https://deezerdevs-deezer.p.rapidapi.com/search",
@@ -19,7 +20,6 @@ function App() {
 
   const fetchData = async () => {
     const result = await axios.request(options);
-    console.log(result);
     setSongs(result.data.data);
     if (songs) {
       setInit(true);
@@ -38,6 +38,7 @@ function App() {
           isPlaying={isPlaying}
           setIsPlaying={setIsPlaying}
         />
+        <Library songs={songs} />
       </div>
     );
   };
