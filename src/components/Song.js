@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 
-function Song({ initial }) {
+function Song({ current }) {
+  console.log(current);
+
   return (
-    <div className="song-container">
-      <img src={initial.album.cover_medium} alt="" />
-      <h1>{initial.title}</h1>
-      <h1>{initial.artist.name}</h1>
+    <div>
+      {current ? (
+        <div className="song-container">
+          <img src={current.album.cover_medium} alt="" />
+          <h1>{current.title}</h1>
+          <h1>{current.artist.name}</h1>
+        </div>
+      ) : (
+        "loading"
+      )}
     </div>
   );
 }
